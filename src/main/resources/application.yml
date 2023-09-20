@@ -1,0 +1,31 @@
+spring:
+  jmx:
+    enabled: false
+javafx:
+  stage:
+    resizable: false
+  title: Lab Central
+
+text: "this is a test from yml"
+
+
+fonts: Roboto-Black.ttf, Roboto-BlackItalic.ttf
+
+#fonts:
+#  - Roboto-Black.ttf
+#  - Roboto-BlackItalic.ttf
+
+#fonts:
+#  list:
+#    - Roboto-Black.ttf
+#    - Roboto-BlackItalic.ttf
+#  - Roboto-Bold.ttf
+#  - Roboto-BoldItalic.ttf
+#  - Roboto-Italic.ttf
+#  - Roboto-Light.ttf
+#  - Roboto-LightItalic.ttf
+#  - Roboto-Medium.ttf
+#  - Roboto-MediumItalic.ttf
+#  - Roboto-Regular.ttf
+#  - Roboto-Thin.ttf
+#  - Roboto-ThinItalic.ttf
