@@ -9,8 +9,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="labcentral.view.InsertTextController">
-   <MenuBar fx:id="menuBar" layoutX="-1.0" layoutY="1.0" prefHeight="26.0" prefWidth="600.0" />
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="labcentral.view.InsertTextController">
+   <MenuBar fx:id="menuBar" layoutX="-1.0" layoutY="1.0" prefHeight="0.0" prefWidth="600.0" />
     <TextArea fx:id="textArea" layoutX="30.0" layoutY="111.0" prefHeight="203.0" prefWidth="541.0" />
     <Label layoutX="209.0" layoutY="38.0" text="为文件夹中的所有图片，插入文字" />
     <Button fx:id="btnConfirm" layoutX="486.0" layoutY="325.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="85.0" text="确认" />

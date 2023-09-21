@@ -6,7 +6,9 @@ import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.DirectoryChooser;
+import labcentral.custom.FontMenuButton;
 import labcentral.service.Dele;
 import labcentral.util.FileUtil;
 import labcentral.util.FxUtil;
@@ -40,6 +42,9 @@ public class InsertTextController implements Initializable {
     @FXML
     public MenuBar menuBar;
 
+    @FXML
+    public AnchorPane root;
+
     @Value("test")
     private String text;
 
@@ -47,6 +52,9 @@ public class InsertTextController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        FontMenuButton fontMenuButton = new FontMenuButton();
+        root.getChildren().add(fontMenuButton);
+
         FxUtil.loadMenubar(menuBar, menubarPlugins);
 
         textArea.setText(text);
@@ -62,7 +70,6 @@ public class InsertTextController implements Initializable {
         btnConfirm.setOnAction(event -> {
             new Thread(this::textIn).start();
         });
-
     }
 
     private void textIn() {

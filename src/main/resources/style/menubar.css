@@ -1,0 +1,4 @@
+.menu-button {
+    -fx-max-width: 100px; /* 设置MenuButton的最大宽度 */
+    -fx-text-overrun: ellipsis; /* 当文本溢出时显示省略号 */
+}
