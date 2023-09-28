@@ -35,35 +35,41 @@ public class FontMenuButton extends MenuButton {
         ToggleGroup allFontsGroup = new ToggleGroup();
 
         Font.getFamilies().forEach(fontName -> {
-            RadioMenuItem fontItem = new CustomRadioMenuItem(fontName, fontName, defaultFontSize);
+            RadioMenuItem fontItem = new CustomRadioMenuItem(fontName, defaultFont, defaultFontSize);
             fontItem.setToggleGroup(allFontsGroup);
             getItems().add(fontItem);
 
-            fontItem.setOnAction(event -> {
-                if (fontItem.isSelected()) {
-                    RadioMenuItem removeLastFontItem = recentlyFontItems.addAndReturnRemoveLast(fontItem);
-                    String removeLastFontName = recentlyFontNames.addAndReturnRemoveLast(fontItem.getText());
-
-                    // 如果没有最近的使用字体被删除
-                    if (null == removeLastFontName) {
-
-                        RadioMenuItem lateFontItem = new CustomRadioMenuItem(fontItem.getText(), fontItem.getText(), defaultFontSize);
-                        lateFontItem.setToggleGroup(recentlyFontsGroup);
-
-                        getItems().add(1, lateFontItem);
-
-                        lateFontItem.setSelected(true);
-                        Bindings.bindBidirectional(fontItem.selectedProperty(), lateFontItem.selectedProperty());
-                    } else {
-                        // 如果有最近的使用字体被删除，那么要移除组件，以及绑定
-                        getItems().remove(removeLastFontItem);
-
-                    }
-                    setText(fontItem.getText());
-                    font = new Font(fontItem.getText(), defaultFontSize);
-                }
-
-            });
         });
+
+        allFontsGroup.selectedToggleProperty().addListener((observable) -> {
+            if(null != allFontsGroup.getSelectedToggle()){
+                CustomRadioMenuItem selected = (CustomRadioMenuItem)allFontsGroup.getSelectedToggle();
+
+                RadioMenuItem removeLastFontItem = recentlyFontItems.addAndReturnRemoveLast(selected);
+                String removeLastFontName = recentlyFontNames.addAndReturnRemoveLast(selected.getText());
+
+                // 如果没有最近的使用字体被删除
+                if (null == removeLastFontName) {
+
+                    RadioMenuItem lateFontItem = new CustomRadioMenuItem(selected.getText(), defaultFont, defaultFontSize);
+                    lateFontItem.setToggleGroup(recentlyFontsGroup);
+
+                    getItems().add(1, lateFontItem);
+
+                    lateFontItem.setSelected(true);
+                    Bindings.bindBidirectional(selected.selectedProperty(), lateFontItem.selectedProperty());
+                } else {
+                    // 如果有最近的使用字体被删除，那么要移除组件，以及绑定
+                    getItems().remove(removeLastFontItem);
+
+                }
+                setText(selected.getText());
+                font = new Font(selected.getText(), defaultFontSize);
+                setFont(font);
+
+            }
+        });
+
+
     }
 }

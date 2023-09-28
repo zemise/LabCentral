@@ -25,7 +25,7 @@ import static labcentral.util.TextInTIFF.getImageFile;
 import static labcentral.util.TextInTIFF.insertText;
 
 @FXMLController
-public class InsertTextController implements Initializable {
+public class InsertController implements Initializable {
     @FXML
     public TextArea textArea;
     @FXML
@@ -45,7 +45,7 @@ public class InsertTextController implements Initializable {
     @FXML
     public AnchorPane root;
 
-    @Value("test")
+    @Value("${text}")
     private String text;
 
     private final MenubarPlugin[] menubarPlugins = {new FontMenu()};

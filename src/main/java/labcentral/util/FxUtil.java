@@ -64,6 +64,7 @@ public class FxUtil {
         for (MenubarPlugin menubarPlugin : menubarPlugins) {
             try {
                 menubarPlugin.setup(GUIState.getStage(), menuBar);
+                log.info("success to load menuBarPlugin: {}", menubarPlugin.getClass().getName());
             } catch (Exception e) {
                 log.warn("failed to load menuBarPlugin: {}", menubarPlugin.getClass().getName(), e);
             }
