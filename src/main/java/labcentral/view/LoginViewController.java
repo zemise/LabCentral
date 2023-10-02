@@ -37,7 +37,7 @@ public class LoginViewController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        imageView.setImage(new Image(Paths.get("labcentral/image", "app-icon.png").toString()));
+        imageView.setImage(new Image(getClass().getResource("/images/app-icon.png").toExternalForm()));
         loginButton.setDisable(true);
 
         // account and password not blank

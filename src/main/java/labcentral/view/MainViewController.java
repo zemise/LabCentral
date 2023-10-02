@@ -38,7 +38,7 @@ public class MainViewController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         FxUtil.loadMenubar(menuBar, menubarPlugins);
 
-        userImage.setImage(new Image(Paths.get("labcentral/image", "user_not_login.png").toString()));
+        userImage.setImage(new Image(getClass().getResource("/images/user_not_login.png").toExternalForm()));
 
         userLoginButton.setOnAction((ActionEvent event) -> {
             LabCentralMain.showView(LoginView.class, Modality.WINDOW_MODAL);
@@ -48,7 +48,7 @@ public class MainViewController implements Initializable {
     @EventListener
     public void handleLoginEvent(LoginEvent event) {
         if (event.isLoggedIn()) {
-            userImage.setImage(new Image(Paths.get("labcentral/image", "app-icon.png").toString()));
+            userImage.setImage(new Image(getClass().getResource("/images/app-icon.png").toExternalForm()));
         }
     }
 
