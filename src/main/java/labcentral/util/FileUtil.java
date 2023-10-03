@@ -1,8 +1,13 @@
 package labcentral.util;
 
 import labcentral.LabCentralMain;
+import lombok.Getter;
 
 import java.io.*;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 
 /**
  * <p>
@@ -14,20 +19,35 @@ import java.io.*;
  */
 
 public class FileUtil {
-    public static void write(String content) {
-        File file = new File(LabCentralMain.class.getClassLoader().getResource("data/data.txt").getFile());
+    public static void write(String content, String filePath) {
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
-            bw.write(content);
-            bw.flush();
-            System.out.println("内容已成功写入文件。");
+            File file = new File(filePath);
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
+                bw.write(content);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static String read() {
-        InputStream resourceAsStream = FileUtil.class.getClassLoader().getResourceAsStream("data/data.txt");
+    public static String read(String filePath) {
+        StringBuilder builder = new StringBuilder();
+        try {
+            File file = new File(filePath);
+            try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+                String line = reader.readLine();
+                while (line != null) {
+                    builder.append(line).append("\n");
+                    line = reader.readLine();
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return builder.toString();
+    }
+
+    public static String read(InputStream resourceAsStream) {
         StringBuilder builder = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(resourceAsStream))) {
             String line = reader.readLine();
@@ -35,9 +55,6 @@ public class FileUtil {
                 builder.append(line).append("\n");
                 line = reader.readLine();
             }
-            reader.close();
-            System.out.println("内容已成功读取文件");
-
         } catch (IOException e) {
             e.printStackTrace();
         }

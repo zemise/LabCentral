@@ -1,4 +1,4 @@
-package labcentral.custom;
+package labcentral.customtest;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;

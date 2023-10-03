@@ -6,10 +6,14 @@ javafx:
     resizable: false
   title: Lab Central
 
-text: "this is a test from yml"
-
-
 fonts: Roboto-Black.ttf, Roboto-BlackItalic.ttf
+
+insertExample: " \n
+  示例：\n
+  [20230909]\n
+  H1299 + (0,a20,ZA1a20,ZA5a20,ZA10a20,ZA10) -1h+10min \n
+  H1299 + (0,b10,ZA1b10,ZA5b10,ZA10b10,ZA10) -1h+10min"
+
 
 #fonts:
 #  - Roboto-Black.ttf

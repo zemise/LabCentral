@@ -1,7 +1,9 @@
 package labcentral.util;
 
 import de.felixroske.jfxsupport.GUIState;
+import javafx.application.Platform;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.MenuBar;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -69,5 +71,15 @@ public class FxUtil {
                 log.warn("failed to load menuBarPlugin: {}", menubarPlugin.getClass().getName(), e);
             }
         }
+    }
+
+    public static void showWarningDialog(String message) {
+        Platform.runLater(() -> {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("警告");
+            alert.setHeaderText(null);
+            alert.setContentText(message);
+            alert.show();
+        });
     }
 }

@@ -1,8 +1,9 @@
-package labcentral.custom;
+package labcentral.customtest;
 
 import javafx.scene.Node;
 import javafx.scene.control.Skin;
 import javafx.scene.layout.StackPane;
+import labcentral.customtest.FontControl;
 
 public class FontSkinHands implements Skin<FontControl> {
     private final FontControl control;
