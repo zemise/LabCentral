@@ -1,6 +1,14 @@
 spring:
+  profiles:
+    active: dev
   jmx:
     enabled: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/your_database
+    username: your_username
+    password: your_password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
 javafx:
   stage:
     resizable: false

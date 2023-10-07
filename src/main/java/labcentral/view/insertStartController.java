@@ -28,6 +28,7 @@ public class insertStartController implements Initializable {
         hBox.getChildren().add(0,fontMenuButton);
 
         // 监听字体选择，实时改变输入框字体
-        fontMenuButton.fontProperty().addListener((observable, oldValue, newValue) -> insertController.textArea.setFont(newValue));
+        fontMenuButton.fontProperty().addListener((observable, oldValue, newValue) ->
+                insertController.textArea.setFont(newValue));
         }
 }
