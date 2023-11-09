@@ -1,7 +1,6 @@
 package labcentral.custom;
 
 import javafx.beans.binding.Bindings;
-import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.control.*;
 import javafx.scene.text.Font;
@@ -9,24 +8,33 @@ import javafx.scene.text.Font;
 public class FontMenuButton extends MenuButton {
     // 当前系统默认的字体
     private final Font defaultFont = Font.getDefault();
-    // 当前系统默认的字体大小
-    private final double defaultFontSize = defaultFont.getSize();
+
     private final int recentlyFontMaxSize = 10;
     private final LimitedOrderedSet<RadioMenuItem> recentlyFontItems = new LimitedOrderedSet<>(recentlyFontMaxSize);
     private final LimitedOrderedSet<String> recentlyFontNames = new LimitedOrderedSet<>(recentlyFontMaxSize);
 
+    /**
+     * 选中的字体
+     */
+    private final SimpleObjectProperty<String> selectedFontName = new SimpleObjectProperty<>(defaultFont.getName());
+
+    public SimpleObjectProperty<String> fontNameProperty() {
+        return selectedFontName;
+    }
+
     public FontMenuButton() {
+        // 初始字体
         setText(defaultFont.getName());
         // 添加样式类
         getStyleClass().add("menu-button");
 
         ToggleGroup recentlyFontsGroup = new ToggleGroup();
 
-        MenuItem recentFontItem = new CustomRadioMenuItem("最近使用的字体", defaultFont, defaultFontSize);
+        MenuItem recentFontItem = new RadioMenuItem("最近使用的字体");
         recentFontItem.setDisable(true);
         getItems().add(recentFontItem);
 
-        MenuItem blankItem = new CustomRadioMenuItem("所有字体", defaultFont, defaultFontSize);
+        MenuItem blankItem = new RadioMenuItem("所有字体");
 
         blankItem.setDisable(true);
         getItems().addAll(new SeparatorMenuItem(), blankItem, new SeparatorMenuItem());
@@ -34,7 +42,7 @@ public class FontMenuButton extends MenuButton {
         ToggleGroup allFontsGroup = new ToggleGroup();
 
         Font.getFamilies().forEach(fontName -> {
-            RadioMenuItem fontItem = new CustomRadioMenuItem(fontName, defaultFont, defaultFontSize);
+            RadioMenuItem fontItem = new RadioMenuItem(fontName);
             fontItem.setToggleGroup(allFontsGroup);
             getItems().add(fontItem);
 
@@ -42,7 +50,7 @@ public class FontMenuButton extends MenuButton {
 
         allFontsGroup.selectedToggleProperty().addListener((observable) -> {
             if (null != allFontsGroup.getSelectedToggle()) {
-                CustomRadioMenuItem selected = (CustomRadioMenuItem) allFontsGroup.getSelectedToggle();
+                RadioMenuItem selected = (RadioMenuItem) allFontsGroup.getSelectedToggle();
 
                 RadioMenuItem removeLastFontItem = recentlyFontItems.addAndReturnRemoveLast(selected);
                 String removeLastFontName = recentlyFontNames.addAndReturnRemoveLast(selected.getText());
@@ -50,7 +58,7 @@ public class FontMenuButton extends MenuButton {
                 // 如果没有最近的使用字体被删除
                 if (null == removeLastFontName) {
 
-                    RadioMenuItem lateFontItem = new CustomRadioMenuItem(selected.getText(), defaultFont, defaultFontSize);
+                    RadioMenuItem lateFontItem = new RadioMenuItem(selected.getText());
                     lateFontItem.setToggleGroup(recentlyFontsGroup);
 
                     getItems().add(1, lateFontItem);
@@ -62,8 +70,11 @@ public class FontMenuButton extends MenuButton {
                     getItems().remove(removeLastFontItem);
                 }
 
+                // 按钮文字显示为所选字体名字
                 setText(selected.getText());
-                fontProperty().set(new Font(selected.getText(), defaultFontSize));
+
+                // 选中字体
+                selectedFontName.set(selected.getText());
             }
         });
     }

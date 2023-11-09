@@ -4,7 +4,10 @@ import de.felixroske.jfxsupport.GUIState;
 import javafx.application.Platform;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ColorPicker;
+import javafx.scene.control.Control;
 import javafx.scene.control.MenuBar;
+import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import labcentral.view.menubar.MenubarPlugin;
@@ -74,12 +77,23 @@ public class FxUtil {
     }
 
     public static void showWarningDialog(String message) {
-        Platform.runLater(() -> {
+//        Platform.runLater(() -> {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("警告");
             alert.setHeaderText(null);
             alert.setContentText(message);
             alert.show();
+//        });
+    }
+
+    public static void applyColorPicker(Node node, ColorPicker colorPicker){
+        colorPicker.setOnAction(e -> {
+            Color selectedColor = colorPicker.getValue();
+            String hexColor = String.format("#%02X%02X%02X",
+                    (int) (selectedColor.getRed() * 255),
+                    (int) (selectedColor.getGreen() * 255),
+                    (int) (selectedColor.getBlue() * 255));
+            node.setStyle("-fx-text-fill: " + hexColor + ";");
         });
     }
 }

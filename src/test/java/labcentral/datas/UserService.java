@@ -12,9 +12,4 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public authmeUser getUserById(int id) {
-        return userRepository.findById(id).orElse(null);
-    }
-
-
 }

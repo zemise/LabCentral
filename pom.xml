@@ -6,18 +6,23 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.1.4</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
-    <groupId>io.github.zemise</groupId>
     <artifactId>LabCentral</artifactId>
+
+    <groupId>io.github.zemise</groupId>
     <version>0.0.1-SNAPSHOT</version>
     <name>labCentral</name>
     <description>LabCentral</description>
     <packaging>jar</packaging>
+
     <properties>
         <java.version>17</java.version>
+        <openjfx.version>17.0.8</openjfx.version>
+        <mysql.version>8.0.30</mysql.version>
         <start-class>labcentral.LabCentralMain</start-class>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -30,12 +35,12 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>17.0.8</version>
+            <version>${openjfx.version}</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>17.0.8</version>
+            <version>${openjfx.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -51,14 +56,18 @@
         </dependency>
 
         <!--  database use mysql -->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-data-jdbc</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jdbc</artifactId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.30</version>
+            <version>${mysql.version}</version>
         </dependency>
     </dependencies>
     <build>

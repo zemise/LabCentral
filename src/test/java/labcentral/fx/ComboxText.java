@@ -34,12 +34,12 @@ public class ComboxText extends Application {
         ToggleGroup recentlyFontsGroup = new ToggleGroup();
 
 
-        MenuItem recentFontItem = new CustomRadioMenuItem("最近使用的字体", defaultFont, defaultFontSize);
+        MenuItem recentFontItem = new RadioMenuItem("最近使用的字体");
         recentFontItem.setDisable(true);
         fontMenuButton.getItems().add(recentFontItem);
 
 
-        MenuItem blankItem = new CustomRadioMenuItem("所有字体", defaultFont, defaultFontSize);
+        MenuItem blankItem = new RadioMenuItem("所有字体");
 
         blankItem.setDisable(true);
         fontMenuButton.getItems().addAll(new SeparatorMenuItem(), blankItem, new SeparatorMenuItem());
@@ -47,7 +47,7 @@ public class ComboxText extends Application {
         ToggleGroup allFontsGroup = new ToggleGroup();
 
         Font.getFamilies().forEach(fontName -> {
-            RadioMenuItem fontItem = new CustomRadioMenuItem(fontName, defaultFont, defaultFontSize);
+            RadioMenuItem fontItem = new RadioMenuItem(fontName);
             fontItem.setToggleGroup(allFontsGroup);
             fontMenuButton.getItems().add(fontItem);
 
@@ -59,7 +59,7 @@ public class ComboxText extends Application {
                     // 如果没有最近的使用字体被删除
                     if (null == removeLastFontName) {
 
-                        RadioMenuItem lateFontItem = new CustomRadioMenuItem(fontItem.getText(), defaultFont, defaultFontSize);
+                        RadioMenuItem lateFontItem = new RadioMenuItem(fontItem.getText());
                         lateFontItem.setToggleGroup(recentlyFontsGroup);
 
                         fontMenuButton.getItems().add(1, lateFontItem);

@@ -3,7 +3,6 @@ package labcentral.domain;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import lombok.Data;
-import org.springframework.data.relational.core.mapping.Table;
 
 import java.io.Serial;
 import java.util.Date;
@@ -19,7 +18,6 @@ import java.util.List;
  */
 
 @Data
-@Table
 public class SysUser extends BaseEntity {
     @Serial
     private static final long serialVersionUID = 1L;
@@ -123,6 +121,4 @@ public class SysUser extends BaseEntity {
     public void setSelect(boolean select) {
         this.select.set(select);
     }
-
-
 }

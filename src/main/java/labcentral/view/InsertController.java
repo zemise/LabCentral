@@ -27,9 +27,9 @@ import static labcentral.util.TextInTIFF.insertText;
 
 @FXMLController
 public class InsertController implements Initializable {
-    private final insertStartView insertStartView;
+    private final InsertStartView insertStartView;
     @Autowired
-    public InsertController(labcentral.view.insertStartView insertStartView) {
+    public InsertController(InsertStartView insertStartView) {
         this.insertStartView = insertStartView;
     }
 
