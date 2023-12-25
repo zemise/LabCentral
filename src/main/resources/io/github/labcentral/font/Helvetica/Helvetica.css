@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'Helvetica Regular';
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+    src: url('Helvetica.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Helvetica Bold';
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+    src: url('Helvetica Bold.ttf') format('truetype');
+}
+
+
+
+
+

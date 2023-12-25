@@ -1,5 +1,7 @@
 package labcentral.custom;
 
+import io.github.labcentral.custom.FontMenuButton;
+import io.github.labcentral.custom.FontSizeComBox;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.ColorPicker;
@@ -9,7 +11,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import labcentral.util.FxUtil;
+import io.github.labcentral.util.FxUtil;
 
 
 public class FontMenuButtonTest extends Application {

@@ -261,6 +261,8 @@ public abstract class AbstractFxmlView implements ApplicationContextAware {
 				final URL uri = getClass().getResource(cssFile);
 				if (uri != null) {
 					final String uriToCss = uri.toExternalForm();
+					LOGGER.info("css file path: {}", uriToCss);
+
 					parent.getStylesheets().add(uriToCss);
 					LOGGER.debug("css file added to parent: {}", cssFile);
 				} else {

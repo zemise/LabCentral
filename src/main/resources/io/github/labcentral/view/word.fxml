@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXComboBox?>
+<?import io.github.palexdev.materialfx.controls.MFXDatePicker?>
+<?import io.github.palexdev.materialfx.controls.MFXProgressBar?>
+<?import io.github.palexdev.materialfx.controls.MFXRadioButton?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import io.github.palexdev.materialfx.controls.MFXToggleButton?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
+            prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="io.github.labcentral.view.WordViewController">
+    <stylesheets>
+        <URL value="@../style/word.css"/>
+    </stylesheets>
+    <HBox prefHeight="28.0" prefWidth="1000.0" styleClass="navBar" AnchorPane.leftAnchor="0.0"
+          AnchorPane.rightAnchor="0.0">
+        <MFXButton text="开始">
+            <HBox.margin>
+                <Insets/>
+            </HBox.margin>
+        </MFXButton>
+        <MFXButton text="插入">
+            <HBox.margin>
+                <Insets/>
+            </HBox.margin>
+        </MFXButton>
+        <MFXButton text="绘图">
+            <HBox.margin>
+                <Insets/>
+            </HBox.margin>
+        </MFXButton>
+        <MFXButton text="布局"/>
+        <MFXButton layoutX="154.0" layoutY="10.0" text="引用"/>
+        <MFXButton layoutX="197.0" layoutY="10.0" text="邮件"/>
+        <MFXButton layoutX="240.0" layoutY="10.0" text="审阅"/>
+        <MFXButton layoutX="283.0" layoutY="10.0" text="视图"/>
+    </HBox>
+    <HBox layoutY="28.0" prefHeight="69.0" prefWidth="1000.0" spacing="5.0" styleClass="nav-Start-Bar"
+          AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <padding>
+            <Insets left="5.0" top="10.0"/>
+        </padding>
+        <MFXComboBox fx:id="cbFont" allowEdit="true" floatMode="BORDER" floatingText="字体" prefHeight="35.0"
+                     prefWidth="100.0"/>
+        <MFXComboBox fx:id="cbFontSize" allowEdit="true" floatMode="BORDER" floatingText="字号" layoutX="15.0"
+                     layoutY="20.0" minWidth="65.0" prefHeight="35.0" prefWidth="87.0">
+            <HBox.margin>
+                <Insets/>
+            </HBox.margin>
+        </MFXComboBox>
+        <ColorPicker fx:id="colorPicker" prefHeight="34.0" prefWidth="44.0" styleClass="color-picker"/>
+        <MFXDatePicker fx:id="datePicker" minHeight="35.0" prefHeight="35.0"/>
+        <MFXToggleButton fx:id="insertDate" minHeight="35.0" prefHeight="35.0" text="插入日期"/>
+    </HBox>
+    <VBox layoutX="102.0" layoutY="142.0" prefHeight="386.0" prefWidth="970.0" styleClass="input-comtainer"
+          AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0"
+          AnchorPane.topAnchor="140.0">
+        <HBox>
+            <children>
+                <MFXTextField fx:id="directoryFiled" floatMode="BORDER" prefHeight="14.0" prefWidth="847.0"/>
+                <MFXButton fx:id="directoryChooser" prefHeight="27.0" prefWidth="87.0" styleClass="comfirm-button"
+                           text="浏览">
+                    <HBox.margin>
+                        <Insets left="5.0" top="5.0"/>
+                    </HBox.margin>
+                    <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="FILE" size="15"/>
+                    </graphic>
+                </MFXButton>
+            </children>
+            <padding>
+                <Insets bottom="5.0" top="5.0"/>
+            </padding>
+        </HBox>
+        <TextArea fx:id="textArea" prefHeight="357.0" prefWidth="970.0" styleClass="input-textarea"
+                  VBox.vgrow="ALWAYS"/>
+        <HBox prefHeight="28.0" prefWidth="970.0">
+            <padding>
+                <Insets top="5.0"/>
+            </padding>
+            <MFXTextField fx:id="targetNameReg" floatMode="BORDER" floatingText="目标文件名" minHeight="20.0"
+                          minWidth="20.0" prefHeight="27.0" prefWidth="87.0" promptText="300">
+                <HBox.margin>
+                    <Insets left="5.0"/>
+                </HBox.margin>
+            </MFXTextField>
+            <HBox>
+                <children>
+                    <MFXRadioButton fx:id="imageModel" text="选图模式"/>
+                    <MFXRadioButton fx:id="fileModel" text="文件夹模式">
+                        <HBox.margin>
+                            <Insets left="5.0"/>
+                        </HBox.margin>
+                    </MFXRadioButton>
+                </children>
+                <padding>
+                    <Insets left="5.0" top="5.0"/>
+                </padding>
+                <HBox.margin>
+                    <Insets left="5.0"/>
+                </HBox.margin>
+            </HBox>
+            <Region prefHeight="28.0" prefWidth="294.0" HBox.hgrow="ALWAYS"/>
+            <MFXProgressBar fx:id="progressBar" visible="false">
+                <HBox.margin>
+                    <Insets right="15.0" top="10.0"/>
+                </HBox.margin>
+            </MFXProgressBar>
+            <MFXButton fx:id="btnConfirm" prefHeight="27.0" prefWidth="87.0" styleClass="comfirm-button" text="确认">
+                <HBox.margin>
+                    <Insets right="5.0"/>
+                </HBox.margin>
+                <graphic>
+                    <FontAwesomeIconView fill="WHITE" glyphName="CHECK"/>
+                </graphic>
+            </MFXButton>
+        </HBox>
+    </VBox>
+</AnchorPane>

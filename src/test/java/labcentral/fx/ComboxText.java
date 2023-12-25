@@ -8,8 +8,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import labcentral.custom.CustomRadioMenuItem;
-import labcentral.custom.LimitedOrderedSet;
+import io.github.labcentral.custom.LimitedOrderedSet;
 
 
 public class ComboxText extends Application {
@@ -89,9 +88,6 @@ public class ComboxText extends Application {
         vbox.getChildren().addAll(text, fontMenuButton);
 
         Scene scene = new Scene(vbox, 300, 200);
-
-        // 将CSS文件加载到场景中
-        scene.getStylesheets().add(getClass().getResource("/style/menubar.css").toExternalForm());
 
         primaryStage.setScene(scene);
         primaryStage.show();

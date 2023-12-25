@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXProgressBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<?import java.net.URL?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
+            prefWidth="1000.0" stylesheets="@../style/splash.css"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <AnchorPane prefHeight="600.0" prefWidth="250.0" style="-fx-background-color: #262626;">
+        <Label layoutX="89.0" layoutY="72.0" prefHeight="150.0" prefWidth="147.0" text="Lab" textAlignment="CENTER"
+               textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="72.0"/>
+            </font>
+        </Label>
+    </AnchorPane>
+    <AnchorPane layoutX="250.0" layoutY="3.0" prefHeight="600.0" prefWidth="750.0">
+        <ImageView fitHeight="600.0" fitWidth="750.0" layoutY="-6.0" pickOnBounds="true">
+            <Image url="@../media/labcentral.png"/>
+        </ImageView>
+        <Label layoutX="25.0" layoutY="72.0" prefHeight="150.0" prefWidth="400.0" text="Central" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="72.0"/>
+            </font>
+        </Label>
+        <Label alignment="TOP_LEFT" layoutX="58.0" layoutY="222.0" prefHeight="78.0" prefWidth="335.0" text="中心实验室"
+               textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="59.0"/>
+            </font>
+        </Label>
+    </AnchorPane>
+    <MFXProgressBar blendMode="SRC_ATOP" layoutY="596.0" opacity="0.9" prefHeight="5.0" prefWidth="1000.0"/>
+</AnchorPane>

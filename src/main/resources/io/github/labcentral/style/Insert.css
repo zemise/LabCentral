@@ -1,0 +1,49 @@
+@import 'MFXColors.css';
+
+MFXButton {
+    -fx-background-color: #7400ff;
+    /*-fx-text-fill: white;*/
+}
+
+/*MFXButton .mfx-ripple-generator {*/
+/*    -mfx-ripple-radius: 40;*/
+/*    -mfx-auto-clip: true;*/
+/*}*/
+
+/*MFXButton {*/
+/*    -fx-font-smoothing-type: gray;*/
+/*}*/
+
+MFXButton {
+    -fx-text-fill: -mfx-text-he;
+}
+
+MFXButton .mfx-ripple-generator {
+    -mfx-ripple-radius: 40;
+    -mfx-auto-clip: true;
+}
+
+MFXButton .text {
+    -fx-font-smoothing-type: gray;
+}
+
+MFXButton {
+    -fx-background-color: -mfx-purple;
+    -fx-text-fill: white
+}
+
+
+
+#progressBar .track {
+    -fx-fill: lightgrey;
+    -fx-stroke: #262626;
+    -fx-stroke-width: 0;
+}
+
+#progressBar .bar1 {
+    -fx-fill: #7400ff;
+}
+
+#progressBar .bar2 {
+    -fx-fill: black;
+}

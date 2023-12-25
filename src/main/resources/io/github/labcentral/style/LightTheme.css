@@ -1,0 +1,40 @@
+@font-face {
+    src: url("../font/Helvetica/Helvetica.ttf");
+}
+
+* {
+    -root: #f5f5f7;
+    -primary: #2ab56f;
+    -secondary: #bebec2;
+    -delete: #f35f56;
+    -hover: #2BA266;
+}
+
+.root {
+    -fx-background-color: -root;
+}
+
+.h1 {
+    -fx-font-size: 25;
+    -fx-font-family: "Helvetica Regular";
+}
+
+.h2 {
+    -fx-font-size: 20;
+    -fx-font-family: "Helvetica Regular";
+}
+
+.h3 {
+    -fx-font-size: 15;
+    -fx-font-family: "Helvetica Regular";
+}
+
+.h4 {
+    -fx-font-size: 14;
+    -fx-font-family: "Helvetica Regular";
+}
+
+.h5 {
+    -fx-font-size: 12;
+    -fx-font-family: "Helvetica Regular";
+}

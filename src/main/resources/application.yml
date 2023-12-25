@@ -1,6 +1,17 @@
+server:
+  port: 8055
+
 spring:
   profiles:
     active: dev
+  h2:
+    console:
+      enabled: true
+    settings:
+    #        web-allow-others: false
+    # 默认路径，则网页访问H2路径http://localhost:8068/h2-console
+    path: /h2-console
+
   jmx:
     enabled: false
   datasource:
@@ -9,35 +20,26 @@ spring:
     password: your_password
     driver-class-name: com.mysql.cj.jdbc.Driver
 
-javafx:
-  stage:
-    resizable: false
-  title: Lab Central
+  # JPA configuration
+  jpa:
+    # sqlite need
+    #    database-platform: org.hibernate.community.dialect.SQLiteDialect
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: create
 
-fonts: Roboto-Black.ttf, Roboto-BlackItalic.ttf
-
-insertExample: " \n
-  示例：\n
-  [20230909]\n
-  H1299 + (0,a20,ZA1a20,ZA5a20,ZA10a20,ZA10) -1h+10min \n
-  H1299 + (0,b10,ZA1b10,ZA5b10,ZA10b10,ZA10) -1h+10min"
+        #        dialect: org.hibernate.dialect.MYSQL5InnoDBDialect
+        # format SQL output
+        format_sql: true
+    # SQL output
+    show-sql: true
 
 
-#fonts:
-#  - Roboto-Black.ttf
-#  - Roboto-BlackItalic.ttf
+#javafx:
+#  appicons: app-icon.png
+#  stage:
+#    resizable: false
+#  title: Lab Central
 
-#fonts:
-#  list:
-#    - Roboto-Black.ttf
-#    - Roboto-BlackItalic.ttf
-#  - Roboto-Bold.ttf
-#  - Roboto-BoldItalic.ttf
-#  - Roboto-Italic.ttf
-#  - Roboto-Light.ttf
-#  - Roboto-LightItalic.ttf
-#  - Roboto-Medium.ttf
-#  - Roboto-MediumItalic.ttf
-#  - Roboto-Regular.ttf
-#  - Roboto-Thin.ttf
-#  - Roboto-ThinItalic.ttf
+insertExample: "示例：H1299 + (0,a20,ZA1a20,ZA5a20,ZA10a20,ZA10) -1h+10min"

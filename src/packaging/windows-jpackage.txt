@@ -1,0 +1,20 @@
+--type msi
+--description "@project.description@"
+--main-class @main-class@
+--name @app.name@
+--app-version @app.version@
+--vendor @windows.vendor@
+--win-menu-group @windows.vendor@
+
+
+
+--win-menu
+--icon "@project.basedir@/app-icon.ico"
+--dest "@project.build.directory@"
+--main-jar @project.build.finalName@.jar
+--input "@project.build.directory@/dependency"
+--runtime-image "@project.build.directory@/jvm-image"
+--temp "@project.build.directory@/installer-work"
+--win-upgrade-uuid @windows.upgrade.uuid@
+
+--copyright "(C) @windows.vendor@"

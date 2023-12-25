@@ -1,0 +1,28 @@
+@import '../font/Fonts.css';
+/*@import 'Common.css';*/
+/*@import 'MFXColors.css';*/
+
+
+.label {
+    -fx-font-family: Helvetica Bold;
+}
+
+.mfx-progress-bar .track {
+    -fx-fill: #fff;
+    -mfx-stroke: #262626;
+    -mfx-stroke-width: 0;
+}
+
+.mfx-progress-bar .bar1 {
+    -fx-stroke: #7400ff;
+    -fx-stroke-width: 0;
+    -fx-fill: #7400ff;
+}
+
+.mfx-progress-bar .bar2{
+    -fx-stroke: #7400ff;
+    -fx-stroke-width: 0;
+    -fx-fill: #7400ff;
+}
+
+
