@@ -19,6 +19,18 @@
         - [Liberica with JavaFX](https://bell-sw.com/pages/downloads/#/java-17-current)
         - [Azul Zulu with JavaFX](https://www.azul.com/downloads/?version=java-17-sts&package=jdk-fx)
 
+## Run
+```bash
+mvn javafx:run
+# or
+mvn spring-boot:run
+```
+
+## Package
+```bash
+mvn clean install
+```
+
 
 ## some interface:
 

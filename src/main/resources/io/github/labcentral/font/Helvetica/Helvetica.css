@@ -3,7 +3,7 @@
     font-weight: normal;
     font-style: normal;
     font-display: swap;
-    src: url('Helvetica.ttf') format('truetype');
+    src: url('Helvetica-Regular.ttf') format('truetype');
 }
 
 @font-face {
@@ -11,7 +11,7 @@
     font-weight: bold;
     font-style: normal;
     font-display: swap;
-    src: url('Helvetica Bold.ttf') format('truetype');
+    src: url('Helvetica-Bold.ttf') format('truetype');
 }
 
 

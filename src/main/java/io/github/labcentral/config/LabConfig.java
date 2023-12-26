@@ -27,15 +27,23 @@ public class LabConfig {
     @Value("${spring.database.type}")
     String database;
 
+    @Value("${spring.datasource.url}")
+    String databaseUrl;
+
+    @Value("${spring.datasource.username}")
+    String username;
+    @Value("${spring.datasource.password}")
+    String password;
+
     @Bean
     @Primary
     @ConditionalOnProperty(name = "spring.database.type", havingValue = "mysql")
     public DataSource mysqlDataSource() {
         DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
         dataSourceBuilder.driverClassName("com.mysql.cj.jdbc.Driver");
-        dataSourceBuilder.url("jdbc:mysql://localhost:3306/your_database_name");
-        dataSourceBuilder.username("your_mysql_username");
-        dataSourceBuilder.password("your_mysql_password");
+        dataSourceBuilder.url(databaseUrl);
+        dataSourceBuilder.username(username);
+        dataSourceBuilder.password(password);
         return dataSourceBuilder.build();
     }
 
