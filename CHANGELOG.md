@@ -12,7 +12,7 @@ All notable changes to this project will be documented in this file.
 - **Removed** for now removed features.
 - **Fixed** for any bug fixes.
 
-# [1.0.4] - 6-1-2024
+# [1.0.4] - 12-1-2024
 
 ## Fixed 
 

@@ -57,7 +57,7 @@ mvn clean install
 <img src="displayImage/aboutView.jpg">
 
 ### UpdateView
-<img src="displayImage/aboutView.jpg">
+<img src="displayImage/updateView.jpg">
 
 
 
