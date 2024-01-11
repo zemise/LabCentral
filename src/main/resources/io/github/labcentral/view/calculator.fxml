@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXComboBox?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="1000.0" prefHeight="1500.0" prefWidth="1000.0" styleClass="root-pane" stylesheets="@../style/calculator.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+      <VBox layoutX="10.0" layoutY="10.0" spacing="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                  <children>
+                      <HBox alignment="CENTER" prefHeight="35.0" prefWidth="180.0" styleClass="title-container">
+                     <children>
+                        <Label styleClass="title" text="摩尔浓度计算器" />
+                     </children>
+                  </HBox>
+                  <AnchorPane layoutY="35.0" prefHeight="200.0" prefWidth="200.0" styleClass="calculator-container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="301.0" text="本计算器可帮助您计算出特定溶液中溶质的质量、溶液浓度和体积之间的关系，公式为：" />
+                              <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                 <children>
+                                    <MFXComboBox allowEdit="true" floatMode="BORDER" floatingText="质量" minWidth="-Infinity" prefWidth="150.0" />
+                                    <MFXComboBox floatingText="mg" minHeight="35.0" minWidth="55.0" prefHeight="20.0" prefWidth="55.0" />
+                                    <Label styleClass="calculate-symbol" text="=" />
+                                    <MFXComboBox allowEdit="true" floatMode="BORDER" floatingText="浓度" minWidth="-Infinity" prefWidth="150.0" />
+                                    <MFXComboBox floatingText="mM" minHeight="35.0" minWidth="55.0" prefHeight="20.0" prefWidth="55.0" />
+                                    <Label styleClass="calculate-symbol" text="x" />
+                                    <MFXComboBox allowEdit="true" floatMode="BORDER" floatingText="体积" minWidth="-Infinity" prefWidth="150.0" />
+                                    <MFXComboBox floatingText="mL" minHeight="35.0" minWidth="55.0" prefHeight="20.0" prefWidth="55.0" />
+                                    <Label styleClass="calculate-symbol" text="x" />
+                                    <MFXComboBox allowEdit="true" floatMode="BORDER" floatingText="分子量" minWidth="-Infinity" prefWidth="150.0" />
+                                 </children>
+                              </HBox>
+                              <HBox spacing="5.0">
+                                 <children>
+                                    <MFXButton prefHeight="25.0" prefWidth="80.0" styleClass="calculate-button" text="计算" />
+                                    <MFXButton prefHeight="25.0" prefWidth="80.0" styleClass="reset-button" text="重置" />
+                                 </children>
+                              </HBox>
+                              <Label maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="301.0" text="* 在配置溶液时，请务必参考产品标签对应批次的分子量" />
+                           </children>
+                           <padding>
+                              <Insets left="10.0" top="20.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                  </children>
+              </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="35.0" prefWidth="180.0" styleClass="title-container">
+                     <children>
+                        <Label styleClass="title" text="分子量计算器" />
+                     </children>
+                  </HBox>
+                  <AnchorPane layoutY="35.0" prefHeight="200.0" prefWidth="200.0" styleClass="calculator-container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="301.0" text="通过输入化合物的化学式来计算其分子量：通过输入化合物的化学式来计算其分子量：" />
+                              <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                 <children>
+                                    <MFXComboBox allowEdit="true" floatMode="BORDER" floatingText="分子化学式" minWidth="-Infinity" prefWidth="240.0" />
+                                    <MFXButton prefHeight="25.0" prefWidth="80.0" styleClass="calculate-button" text="计算" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                 <children>
+                                    <Label text="总分子量: " />
+                                    <MFXTextField minHeight="-Infinity" prefHeight="35.0" prefWidth="180.0" />
+                                    <Label text="g/mol" />
+                                 </children>
+                              </HBox>
+                              <Label maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="301.0" text="* 分子式中请使用大写字母" />
+                           </children>
+                           <padding>
+                              <Insets left="10.0" top="20.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="35.0" prefWidth="260.0" styleClass="title-container">
+                     <children>
+                        <Label styleClass="title" text="动物体内配方计算器（澄清溶液）" />
+                     </children>
+                  </HBox>
+                  <AnchorPane layoutY="35.0" prefHeight="200.0" prefWidth="200.0" styleClass="calculator-container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="301.0" text="第一步：请输入基本实验信息（考虑到实验过程中的损耗，建议多配一只动物的药量" />
+                              <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                 <children>
+                                    <MFXTextField floatMode="BORDER" floatingText="给药剂量" minHeight="-Infinity" prefHeight="35.0" prefWidth="120.0" />
+                                    <Label text="mg/kg" />
+                                    <Label styleClass="calculate-symbol" text="-&gt;" />
+                                    <MFXTextField floatMode="BORDER" floatingText="动物平均体重" minHeight="-Infinity" prefHeight="35.0" prefWidth="120.0" />
+                                    <Label text="g" />
+                                    <Label styleClass="calculate-symbol" text="-&gt;" />
+                                    <MFXTextField floatMode="BORDER" floatingText="每只动物给药体积" minHeight="-Infinity" prefHeight="35.0" prefWidth="120.0" />
+                                    <Label text="µL" />
+                                    <Label styleClass="calculate-symbol" text="-&gt;" />
+                                    <MFXTextField floatMode="BORDER" floatingText="动物数量" minHeight="-Infinity" prefHeight="35.0" prefWidth="120.0" />
+                                    <Label text="只" />
+                                 </children>
+                              </HBox>
+                              <Label maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="301.0" text="第二步：请输入动物体内配方组成（配方适用于不溶于水的药物；注意不同批次药物配方比例不同）" />
+                              <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                 <children>
+                                    <MFXTextField minHeight="-Infinity" prefHeight="35.0" prefWidth="120.0" promptText="5" />
+                                    <Label text="\% DMSO" />
+                                    <Label styleClass="calculate-symbol" text="+" />
+                                    <MFXTextField minHeight="-Infinity" prefHeight="35.0" prefWidth="120.0" promptText="30" />
+                                    <Label text="\%" />
+                                    <MFXComboBox floatingText="mg" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="90.0" />
+                                    <Label styleClass="calculate-symbol" text="+" />
+                                    <MFXTextField minHeight="-Infinity" prefHeight="35.0" prefWidth="120.0" promptText="10" />
+                                    <Label text="\%  Tween 80" />
+                                    <Label styleClass="calculate-symbol" text="+" />
+                                    <MFXTextField minHeight="-Infinity" prefHeight="35.0" prefWidth="120.0" promptText="10" />
+                                    <Label text="\%  ddH2O" />
+                                 </children>
+                              </HBox>
+                              <HBox spacing="5.0">
+                                 <children>
+                                    <MFXButton prefHeight="25.0" prefWidth="80.0" styleClass="calculate-button" text="计算" />
+                                    <MFXButton prefHeight="25.0" prefWidth="80.0" styleClass="reset-button" text="重置" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" top="20.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="35.0" prefWidth="180.0" styleClass="title-container">
+                     <children>
+                        <Label styleClass="title" text="倍比稀释计算器" />
+                     </children>
+                  </HBox>
+                  <AnchorPane layoutY="35.0" prefHeight="200.0" prefWidth="200.0" styleClass="calculator-container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="301.0" text="用本工具协助配置特定浓度的溶液，使用的计算公式为：用本工具协助配置特定浓度的溶液，使用的计算公式为：" />
+                              <Label maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="301.0" text="开始浓度 × 开始体积 = 最终浓度 × 最终体积开始浓度 × 开始体积 = 最终浓度 × 最终体积" />
+                              <Label maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="301.0" text="稀释公式一般简略地表示为：C1V1 = C2V2 （输入 输出）稀释公式一般简略地表示为：C1V1 = C2V2 （输入 输出）" />
+                              <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                 <children>
+                                    <MFXComboBox allowEdit="true" floatMode="ABOVE" floatingText="开始浓度C1" minWidth="-Infinity" prefWidth="150.0" />
+                                    <MFXComboBox floatingText="mM" minHeight="35.0" minWidth="55.0" prefHeight="20.0" prefWidth="55.0" />
+                                    <Label styleClass="calculate-symbol" text="x" />
+                                    <MFXComboBox allowEdit="true" floatMode="ABOVE" floatingText="开始体积" minWidth="-Infinity" prefWidth="150.0" />
+                                    <MFXComboBox floatingText="mL" minHeight="35.0" minWidth="55.0" prefHeight="20.0" prefWidth="55.0" />
+                                    <Label styleClass="calculate-symbol" text="=" />
+                                    <MFXComboBox allowEdit="true" floatMode="ABOVE" floatingText="最终浓度" minWidth="-Infinity" prefWidth="150.0" />
+                                    <MFXComboBox floatingText="mM" minHeight="35.0" minWidth="55.0" prefHeight="20.0" prefWidth="55.0" />
+                                    <Label styleClass="calculate-symbol" text="x" />
+                                    <MFXComboBox allowEdit="true" floatMode="ABOVE" floatingText="最终体积" minWidth="-Infinity" prefWidth="150.0" />
+                                    <MFXComboBox floatingText="mL" minHeight="35.0" minWidth="55.0" prefHeight="20.0" prefWidth="55.0" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="15.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox spacing="5.0">
+                                 <children>
+                                    <MFXButton prefHeight="25.0" prefWidth="80.0" styleClass="calculate-button" text="计算" />
+                                    <MFXButton prefHeight="25.0" prefWidth="80.0" styleClass="reset-button" text="重置" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" top="20.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="35.0" prefWidth="180.0" styleClass="title-container">
+                     <children>
+                        <Label styleClass="title" text="倍比稀释计算器" />
+                     </children>
+                  </HBox>
+                  <AnchorPane layoutY="35.0" prefHeight="200.0" prefWidth="200.0" styleClass="calculator-container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                 <children>
+                                    <MFXComboBox allowEdit="true" floatMode="ABOVE" floatingText="初始浓度" minWidth="-Infinity" prefWidth="150.0" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="15.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                 <children>
+                                    <MFXComboBox allowEdit="true" floatMode="ABOVE" floatingText="恒定倍数" minWidth="-Infinity" prefWidth="150.0" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="15.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox spacing="5.0">
+                                 <children>
+                                    <MFXButton prefHeight="25.0" prefWidth="150.0" styleClass="calculate-button" text="计算" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" right="20.0" top="20.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+    </children>
+</AnchorPane>

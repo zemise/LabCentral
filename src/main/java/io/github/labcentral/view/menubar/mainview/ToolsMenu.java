@@ -1,12 +1,12 @@
 package io.github.labcentral.view.menubar.mainview;
 
-import io.github.labcentral.view.WordView;
+import io.github.labcentral.view.TextIntoImageView;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import io.github.labcentral.LabCentralMain;
+import io.github.labcentral.Main;
 import io.github.labcentral.view.menubar.CustomMenuItem;
 import io.github.labcentral.view.menubar.MenubarPlugin;
 import org.springframework.stereotype.Component;
@@ -34,6 +34,6 @@ public class ToolsMenu implements MenubarPlugin {
     }
 
     private void showWordInsertStage() {
-        LabCentralMain.showView(WordView.class, Modality.WINDOW_MODAL);
+        Main.showView(TextIntoImageView.class, Modality.WINDOW_MODAL);
     }
 }

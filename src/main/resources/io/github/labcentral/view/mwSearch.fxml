@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXPaginatedTableView?>
+<?import io.github.palexdev.materialfx.controls.MFXTableView?>
+<?import io.github.palexdev.mfxcore.controls.Label?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+
+<GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity"
+          minWidth="-Infinity" prefHeight="550.0" prefWidth="860.0" styleClass="grid-pane" vgap="10.0"
+          xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21"
+          stylesheets="@../style/Common.css"
+          fx:controller="io.github.labcentral.view.MwSearchController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+    </rowConstraints>
+    <children>
+        <StackPane prefHeight="150.0" prefWidth="830.0" GridPane.rowSpan="3"/>
+        <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="header-label" text="分子量查询">
+            <padding>
+                <Insets bottom="10.0" top="10.0"/>
+            </padding>
+        </Label>
+        <MFXTableView fx:id="table" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0"
+                      prefWidth="800.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="1"/>
+        <MFXPaginatedTableView fx:id="paginated" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="800.0"
+                               GridPane.rowIndex="2"/>
+    </children>
+    <padding>
+        <Insets bottom="20.0" left="30.0" right="30.0" top="20.0"/>
+    </padding>
+</GridPane>

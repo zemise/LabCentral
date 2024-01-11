@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXProgressBar?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="400.0" style="-fx-background-radius: 25;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.labcentral.view.CheckUpdateViewController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="30.0" prefWidth="400.0" style="-fx-background-color: f1f2f3; -fx-background-radius: 5 5 0 0; -fx-border-width: 1; -fx-border-radius: 5 5 0 0; -fx-border-color: #c7c8c9;">
+         <children>
+            <Label text="正在更新 Lab Central">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutY="30.0" prefHeight="120.0" prefWidth="400.0" spacing="30.0" style="-fx-background-color: edeef0; -fx-background-radius: 0 0 5 5; -fx-border-radius: 0 0 5 5; -fx-border-width: 0 1 1 1; -fx-border-color: #c7c8c9;">
+         <children>
+            <ImageView fx:id="icon" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+            </ImageView>
+            <VBox prefHeight="120.0" prefWidth="270.0" spacing="15.0" style="-fx-background-radius: 0 0 5 0;">
+               <children>
+                  <Label text="正在检查更新..." />
+                  <MFXProgressBar prefHeight="6.0" prefWidth="240.0" />
+                  <HBox alignment="CENTER_RIGHT" prefHeight="15.0" prefWidth="270.0">
+                     <children>
+                        <MFXButton fx:id="cancelButton" onMouseClicked="#onCancel" prefHeight="15.0" prefWidth="70.0" rippleRadiusMultiplier="5.0" style="-fx-background-radius: 5;" text="取消" />
+                     </children>
+                     <padding>
+                        <Insets right="35.0" />
+                     </padding>
+                  </HBox>
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </VBox>
+         </children>
+         <padding>
+            <Insets left="30.0" />
+         </padding>
+      </HBox>
+   </children>
+</AnchorPane>

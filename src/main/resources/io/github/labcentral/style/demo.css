@@ -1,0 +1,91 @@
+@import '../font/Fonts.css';
+@import 'MFXColors.css';
+
+/**************************************************
+ * Root
+**************************************************/
+.rootPane {
+    /*-fx-background-color: transparent;*/
+    -fx-background-color: #fff;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #ebebeb;
+    -fx-border-style: solid;
+    -fx-border-width: 0 1 1 1;
+    /*-fx-border-color: red;*/
+
+    /*-fx-border-width: 15 15 15 15;*/
+    /*-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0.5, 0.0, 0.0);*/
+    /*todo 只做到了内部阴影，外部的始终没搞定*/
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.3, 0.0, 0.0);
+}
+
+/**************************************************
+ * Window Header
+**************************************************/
+.windowHeader {
+    -fx-background-color: #382a25;
+    -fx-background-radius: 10 10 0 0;
+    -fx-border-radius: 10 10 0 0;
+}
+
+
+.windowHeader .iconBar {
+
+}
+
+.iconBar .closeIcon {
+    -mfx-color: #ff5f57;
+    /*-fx-opacity: 0.5;*/
+}
+
+.iconBar .minimizeIcon {
+    -mfx-color: #febc2e;
+    /*-fx-opacity: 0.5;*/
+}
+
+.iconBar .maximizeIcon {
+    -mfx-color: #27c840;
+    /*-fx-opacity: 0.5;*/
+}
+
+
+/**************************************************
+ * Sidebar
+**************************************************/
+
+.rootPane .sideBar {
+    -fx-background-color: -mfx-purple;
+    /*-fx-background-insets: 0 -5 -1 -1;*/
+    -fx-background-radius: 0 0 15 10;
+    -fx-border-radius: 0 0 15 10;
+}
+
+.sideBar .header {
+    -fx-font-family: 'Open Sans ExtraBold';
+    -fx-font-size: 24;
+    -fx-text-fill: white;
+}
+
+.sideBar .menu-label {
+    -fx-font-family: 'Open Sans Bold';
+    -fx-font-size: 14;
+    -fx-text-fill: white;
+}
+
+.sideBar .scrollPane {
+    -fx-background-color: transparent;
+
+    -track-color: rgba(255, 255, 255, 0.3);
+    -thumb-color: white;
+    -thumb-hover-color: white;
+}
+
+/**************************************************
+ * Content Pane
+**************************************************/
+.contentPane {
+    -fx-background-color: yellow;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}

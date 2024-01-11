@@ -2,13 +2,8 @@ package io.github.labcentral.domain;
 
 
 import de.felixroske.jfxsupport.PropertyReaderHelper;
-import io.github.labcentral.LabCentralMain;
+import io.github.labcentral.Main;
 import lombok.extern.slf4j.Slf4j;
-
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
 
 /**
  * <p>
@@ -23,7 +18,7 @@ import java.net.URL;
 public class Constants {
     public static final String TITLE = "LabCentral";
 
-    public static final String RESOURCE_PATH = PropertyReaderHelper.determineFilePathFromPackageName(LabCentralMain.class);
+    public static final String RESOURCE_PATH = PropertyReaderHelper.determineFilePathFromPackageName(Main.class);
     public static final String FONT_PACKAGE = RESOURCE_PATH + "font/";
     public static final String MEDIA_PACKAGE = RESOURCE_PATH + "media/";
     public static final String VIEW_PACKAGE = RESOURCE_PATH + "view/";

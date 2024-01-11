@@ -7,6 +7,7 @@ import io.github.labcentral.util.FxUtil;
 
 import java.util.*;
 
+@Deprecated
 public class FontSizeComBox extends ComboBox {
     private final SimpleObjectProperty<Double> selectedFontSize = new SimpleObjectProperty<>(10.5);
 
@@ -50,7 +51,7 @@ public class FontSizeComBox extends ComboBox {
                     fontSize = Double.parseDouble(inputSize);
                     // 数字则需介于1 和 1638 之间
                     if( fontSize < 1 || fontSize >1638){
-                        FxUtil.showWarningDialog("数字必须介于 1 和 1638 之间");
+                        FxUtil.warningDialogFx("数字必须介于 1 和 1638 之间");
                         // 确定为超出，恢复到原来的字体号
                         // todo setValue 此处存在的问题是，如果原本是中文字体号，经过一折腾就变了阿拉伯数字了
                         setValue(selectedFontSize.getValue());

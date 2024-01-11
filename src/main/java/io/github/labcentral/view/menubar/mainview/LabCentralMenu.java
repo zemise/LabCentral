@@ -1,5 +1,7 @@
 package io.github.labcentral.view.menubar.mainview;
 
+import de.felixroske.jfxsupport.GUIState;
+import io.github.labcentral.view.CheckUpdateView;
 import javafx.application.Platform;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -8,7 +10,7 @@ import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import io.github.labcentral.LabCentralMain;
+import io.github.labcentral.Main;
 import io.github.labcentral.view.AboutView;
 import io.github.labcentral.view.menubar.CustomMenuItem;
 import io.github.labcentral.view.menubar.MenubarPlugin;
@@ -33,12 +35,24 @@ public class LabCentralMenu implements MenubarPlugin {
         MenuItem aboutItem = CustomMenuItem.configure("关于 LabCentral", x -> showAboutStage(), KeyCode.L);
         MenuItem settingItem = CustomMenuItem.configure("设置", null, KeyCode.COMMA);
         SeparatorMenuItem firstSeparator = new SeparatorMenuItem();
-        MenuItem checkUpdateItem = new MenuItem("检查更新");
+        MenuItem checkUpdateItem = CustomMenuItem.configure("检查更新", x -> handleUpdate(), null);
         SeparatorMenuItem secondSeparator = new SeparatorMenuItem();
-        MenuItem exitItem = CustomMenuItem.configure("退出 LabCentral", x -> Platform.exit(), KeyCode.Q);
+
+        MenuItem hideWindowsItem = CustomMenuItem.configure("隐藏Lab Central", null, KeyCode.H);
+        MenuItem hideOtherWindowItem = new MenuItem("隐藏其他");
+
+        SeparatorMenuItem thirdSeparator = new SeparatorMenuItem();
+        MenuItem exitItem = CustomMenuItem.configure("退出 LabCentral", x -> {
+            // for faster close window, so first close visible window
+            GUIState.getStage().close();
+            // when use spring web, if super close(), may produce  AsynchronousCloseException
+            Platform.exit();
+            System.exit(0);
+        }, KeyCode.Q);
 
 
-        menu.getItems().addAll(aboutItem, settingItem, firstSeparator, checkUpdateItem, secondSeparator, exitItem);
+        menu.getItems().addAll(aboutItem, settingItem, firstSeparator, checkUpdateItem,
+                secondSeparator, hideWindowsItem, hideOtherWindowItem, thirdSeparator, exitItem);
         menuBar.getMenus().add(menu);
 
         aboutItem.setOnAction(event -> {
@@ -46,7 +60,12 @@ public class LabCentralMenu implements MenubarPlugin {
         });
     }
 
+    private void handleUpdate() {
+        //todo: complete update handling
+        Main.showView(CheckUpdateView.class, Modality.NONE);
+    }
+
     private void showAboutStage() {
-        LabCentralMain.showView(AboutView.class, Modality.APPLICATION_MODAL);
+        Main.showView(AboutView.class, Modality.APPLICATION_MODAL);
     }
 }

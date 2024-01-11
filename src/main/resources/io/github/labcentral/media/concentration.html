@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实验计算器</title>
+    <link rel="stylesheet" href="concentration.css">
+</head>
+<body>
+    <div class="section">
+        <div class="func-module">
+            <h3><span class="text-title">摩尔浓度计算器</span></h3>
+            <div class="module-box">
+                <p class="mt10">本计算器可帮助您计算出特定溶液中溶质的质量、溶液浓度和体积之间的关系，公式为：</p>
+                <p class="mt15 mb15 MyRobotoBT">质量 (mg) = 浓度 (mM) × 体积 (mL) × 分子量  (g/mol)</p>
+                <form name="molCalc" id="molCalc">
+                    <table id="calculator pl0">
+                        <tbody><tr>
+                            <th>质量</th>
+                            <th>浓度</th>
+                            <th>体积</th>
+                            <th>分子量</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="mass" class="calculator">
+                                <select name="MassUnits" class="cal_unit">
+                                    <option value="-12">pg</option>
+                                    <option value="-9">ng</option>
+                                    <option value="-6">μg</option>
+                                    <option selected="" value="-3">mg</option>
+                                    <option value="0">g</option>
+                                    <option value="3">kg</option>
+                                </select>
+                                <label class="mr5">=</label>
+                            </td>
+                            <td> <input type="text" name="concentration" class="calculator">
+                                <select name="ConcUnits" class="cal_unit">
+                                    <option value="-15">fM</option>
+                                    <option value="-12">pM</option>
+                                    <option value="-9">nM</option>
+                                    <option value="-6">μM</option>
+                                    <option selected="" value="-3">mM</option>
+                                    <option value="0">M</option>
+                                </select>
+                                <label class="mr5 red">×</label>
+                            </td>
+                            <td> <input type="text" name="volume" class="calculator">
+                                <select name="VolUnits" class="cal_unit">
+                                    <option value="-9">nL</option>
+                                    <option value="-6">μL</option>
+                                    <option selected="" value="-3">mL</option>
+                                    <option value="0">L</option>
+                                </select>
+                                <label class="mr5 red">×</label>
+                            </td>
+                            <td><input type="text" value="" name="MolWt" class="calculator" style="width: 115px;"></td>
+                        </tr>
+                    </tbody></table>
+                    <div class="pb25 mt15">
+                        <button class="button-orange" onclick="CalcMolarity(molCalc); return false">计算</button>
+                        <button class="button-dark-edge" type="reset" onclick="calReset()">重置</button>
+                    </div>
+                </form>
+                <p class="mt15"><label class="red">*</label>在配置溶液时，请务必参考Selleck产品标签和SDS / COA（可在Selleck的产品页面获得）对应批次的分子量。</p>
+            </div>
+        </div>
+        <div class="func-module">
+            <h3><span class="text-title">分子量计算器</span></h3>
+            <div class="module-box">
+                <p class="mt10">通过输入化合物的化学式来计算其分子量：</p>
+                <form name="entryForm" onsubmit="writeOut();return false;" class="mt15">
+                    <input class="v-align-m calculator w200" type="text" placeholder="C10H16N2O2" onkeyup="findChemicalFormula(this.form)" name="inputFormula">
+                    <button class="button-orange v-align-m" onclick="writeOut()">计算</button>
+                </form>
+                <form name="outputForm" class="mt15 MyRobotoBT">
+                    总分子量：<input class="v-align-m calculator w200" type="text" readonly="readonly" id="outputMM" style="border-bottom: 1px solid #595757 !important;">g/mol
+                </form>
+                <p class="mt15"><span class="red bold">*</span> 分子式中请使用大写字母。<span class="MyRobotoBT">C10H16N2O2</span><label class="icon-work mtb-3mlr5"></label><span class="red">c10h16n2o2</span><label class="icon-error mtb-3mlr5"></label></p>
+            </div>
+        </div>
+        <div class="func-module">
+            <h3><span class="text-title">动物体内配方计算器（澄清溶液）</span></h3>
+            <div id="ingredient" class="module-box">
+                <div class="invivo-formulation-input">
+                    <p>
+                        第一步：请输入基本实验信息（考虑到实验过程中的损耗，建议多配一只动物的药量）
+                    </p>
+                    <div>
+                        <label>给药剂量</label>
+                        <input type="text" class="calculator ml5mr5" id="iDosage" name="ingredient" onchange="isFigures(this)">mg/kg
+                        <label class="iconArrow-Red"></label>
+                        <label>动物平均体重</label>
+                        <input type="text" class="calculator ml5mr5" id="iWeight" name="ingredient" onchange="isFigures(this)">g
+                        <label class="iconArrow-Red"></label>
+                        <label>每只动物给药体积</label><input type="text" class="calculator ml5mr5" id="iDosingVol" name="ingredient" onchange="isFigures(this)">μL
+                        <label class="iconArrow-Red"></label>
+                        <label>动物数量</label><input type="text" class="calculator ml5mr5" id="iQty" name="ingredient" onchange="isFigures(this)">只
+                    </div>
+                    <p class="mt25">第二步：请输入动物体内配方组成（配方适用于不溶于水的药物；不同批次药物配方比例不同，请联系Selleck为您提供正确的澄清溶液配方）</p>
+                    <div id="peg300Td">
+                        <input type="text" placeholder="5" class="calculator mr5" name="ingredient" onchange="solventVol(this)" id="calculator_DMSO">% DMSO
+                        <label class="red ml5mr5">+</label>
+                        <input type="text" placeholder="30" class="calculator ml5mr5" name="ingredient" onchange="solventVol(this)" id="calculator_PEG300">%
+                        <select onchange="showOption(this)" class="solvent_options">
+                            <option value="0">PEG300</option>
+                            <option value="1">Corn oil</option>
+                        </select>
+                        <label class="red ml5mr5">+</label>
+                        <input type="text" placeholder="10" class="calculator mr5" name="ingredient" onchange="solventVol(this)" id="calculator_Tween80">% Tween 80
+                        <label class="red ml5mr5">+</label>
+                        <input type="text" class="calculator-mutation mr5 pointer" name="ingredient" onchange="solventVol(this)" id="ddH20">% ddH2O
+                    </div>
+                    <div id="cornOilTd" class="noDisplay">
+                        <input type="text" class="calculator mr5" name="ingredient" onchange="solventVol(this)" id="cornOilDMSO">%<strong>DMSO</strong><label class="red ml5mr5">+</label>
+                        <input type="text" class="calculator ml5mr5" name="ingredient" onchange="solventVol(this)" id="cornOil">%
+                        <select onchange="showOption(this)" class="solvent_options">
+                            <option value="1">Corn oil</option>
+                            <option value="0">PEG300</option>
+                        </select>
+                    </div>
+                    <div class="mt20 mb25"><button class="button-orange mr15" onclick="ingredientCheck()">计算</button><button class="button-dark-edge" onclick="ingredientCalRest()">重置</button></div>
+                </div>
+                <div class="noDisplay invivo-formulation-output" id="inResult">
+                    <hr class="dashed">
+                    <p class="gray mt25">计算结果:</p>
+                    <p class="mt15"><span class="MyRobotoBT">工作液浓度：</span><input readonly="" id="outputConcentration" class="cal-output"> mg/ml；</p>
+                    <p class="mt25"><span class="MyRobotoBT">DMSO母液配制方法：</span><input readonly="" id="outputDosage" class="cal-output ml5mr5"> mg药物溶于<input readonly="" id="outputDMSOVol" class="cal-output ml5mr5">μL DMSO溶液（母液浓度 <input readonly="" id="outputDMSOML" class="cal-output ml5mr5">mg/mL；<span class="red bold">注</span>：如该浓度超过该批次药物DMSO溶解度，请先联系Selleck）；</p>
+                    <p id="inResult1" class="mt25"><span class="MyRobotoBT">体内配方配制方法：</span>取<input readonly="" id="invivoDMSO" class="cal-output ml5mr5">μL DMSO母液，加入<input readonly="" id="invivoPEG300" class="cal-output ml5mr5">μL PEG300，混匀澄清后加入<input readonly="" id="invivoTween80" class="cal-output ml5mr5">μL Tween 80，混匀澄清后加入<input readonly="" id="invivoddH2O" class="cal-output ml5mr5">μL ddH<sub>2</sub>O，混匀澄清。</p>
+                    <p id="inResult2" class="mt25 noDisplay"><span class="MyRobotoBT">体内配方配制方法：</span>取<input readonly="" id="invivoDMSO2" class="cal-output ml5mr5">μL DMSO母液，加入<input readonly="" id="invivoCornOil" class="cal-output ml5mr5">μL Corn oil，混匀澄清。</p>
+                    <p class="gray mt25 lh18">
+                        <span class="red bold">注意</span>：1. 首先保证母液是澄清的；<br>
+                        2.一定要按照顺序依次将溶剂加入，进行下一步操作之前必须保证上一步操作得到的是澄清的溶液，可采用涡旋、超声或水浴加热等物理方法助溶。
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="func-module">
+            <h3><span class="text-title">稀释计算器</span></h3>
+            <div class="module-box ofhidden">
+                <p class="mt10">用本工具协助配置特定浓度的溶液，使用的计算公式为：</p>
+                <p class="mt15 MyRobotoBT">开始浓度 × 开始体积 = 最终浓度 × 最终体积</p>
+                <p class="mt15">稀释公式一般简略地表示为：<span class="MyRobotoBT">C1V1 = C2V2</span> （<label class="bg-papayawhip">输入</label> <label class="bg-lavender">输出</label>）</p>
+                <form name="dilCalc" id="dilCalc" class="mt15">
+                    <ul>
+                        <li><div class="fl w271"><strong>C1</strong></div>
+                            <div class="fl w271"><strong>V1</strong></div>
+                            <div class="fl w271"><strong>C2</strong></div>
+                            <div><strong>V2</strong></div>
+                        </li>
+                        <li>
+                            <div class="fl">
+                                <input class="v-align-m calculator w200 bg-papayawhip" type="text" name="concentrationStart">
+                                <select name="ConcUnitsStart" class="cal_unit">
+                                    <option value="-15">fM</option>
+                                    <option value="-12">pM</option>
+                                    <option value="-9">nM</option>
+                                    <option value="-6">μM</option>
+                                    <option selected="selected" value="-3">mM</option>
+                                    <option value="0">M</option>
+                                </select>
+                                <label class="mr5 red">×</label>
+                            </div>
+                            <div class="fl">
+                                <input class="v-align-m calculator w200 bg-lavender" id="dilVol1Bg" name="volumeStart">
+                                <select name="VolUnitsStart" class="cal_unit">
+                                    <option value="-9">nL</option>
+                                    <option value="-6">μL</option>
+                                    <option selected="selected" value="-3">mL</option>
+                                    <option value="0">L</option>
+                                </select>
+                                <label class="mr5 red">=</label>
+                            </div>
+                            <div class="fl">
+                                <input class="v-align-m calculator w200 bg-papayawhip" type="text" name="concentrationFinal">
+                                <select name="ConcUnitsFinal" class="cal_unit">
+                                    <option value="-15">fM</option>
+                                    <option value="-12">pM</option>
+                                    <option value="-9">nM</option>
+                                    <option value="-6">μM</option>
+                                    <option selected="selected" value="-3">mM</option>
+                                    <option value="0">M</option>
+                                </select>
+                                <label class="mr5 red">×</label>
+                            </div>
+                            <div class="fl">
+                                <input class="v-align-m calculator w200 bg-papayawhip" type="text" value="" name="volumeFinal">
+                                <select name="VolUnitsFinal" class="cal_unit">
+                                    <option value="-6">μL</option>
+                                    <option selected="selected" value="-3">mL</option>
+                                    <option value="0">L</option>
+                                </select>
+                            </div>
+
+                        </li>
+                    </ul>
+                    <div class="clr">
+                        <button class="button-orange v-align-m mt15" onclick="CalcDilute(ffCompat(dilCalc)); return false">计算</button>
+                        <button class="button-dark-edge v-align-m mt15" type="reset" onclick="calReset()">重置</button>
+                    </div>
+                </form>
+                <p class="mt15"><label class="red">*</label>在配置溶液时，请务必参考Selleck产品标签上、SDS / COA（可在Selleck的产品页面获得）批次特异的分子量使用本工具。</p>
+                <p class="bottomline mt30 pb10 f16 bold">连续稀释计算器方程</p>
+                <form id="serialCalc" class="mt15" name="serialCalc">
+                    <div class="col-2-5">
+                        <p class="text-indent10 mb25"><strong>连续稀释</strong></p>
+                        <div class="form-general">
+                            <label class="w100">初始浓度：</label>
+                            <input type="text" name="concentrationInit" id="dilone" value="" placeholder="C0" class="v-align-m calculator w280 ml10">
+                            <div class="clr"></div>
+                            <label class="w100">稀释倍数：</label>
+                            <input type="text" name="dilutionfold" id="diltwo" value="" placeholder="X" class="v-align-m calculator w280 ml10">
+                        </div>
+                        <div><button class="button-orange button-size-280 mt15 ml110" onclick="CalcSerialDilute(serialCalc); return false">计算</button></div>
+                    </div>
+                    <div class="col-3-5">
+                        <p class="mb25"><strong>计算结果</strong></p>
+                        <table class="with-frame">
+                            <tbody><tr>
+                                <th width="120">C1=C0/X</th>
+                                <td width="60">C1:</td>
+                                <td width="180" id="concentration1"></td>
+                                <td width="95">LOG(C1):</td>
+                                <td width="180" id="logcon1"></td>
+                            </tr>
+                            <tr>
+                                <th>C2=C1/X</th>
+                                <td>C2:</td>
+                                <td id="concentration2"></td>
+                                <td>LOG(C2):</td>
+                                <td id="logcon2"></td>
+                            </tr>
+                            <tr>
+                                <th>C3=C2/X</th>
+                                <td>C3:</td>
+                                <td id="concentration3"></td>
+                                <td>LOG(C3):</td>
+                                <td id="logcon3"></td>
+                            </tr>
+                            <tr>
+                                <th>C4=C3/X</th>
+                                <td>C4:</td>
+                                <td id="concentration4"></td>
+                                <td>LOG(C4):</td>
+                                <td id="logcon4"></td>
+                            </tr>
+                            <tr>
+                                <th>C5=C4/X</th>
+                                <td>C5:</td>
+                                <td id="concentration5"></td>
+                                <td>LOG(C5):</td>
+                                <td id="logcon5"></td>
+                            </tr>
+                            <tr>
+                                <th>C6=C5/X</th>
+                                <td>C6:</td>
+                                <td id="concentration6"></td>
+                                <td>LOG(C6):</td>
+                                <td id="logcon6"></td>
+                            </tr>
+                            <tr>
+                                <th>C7=C6/X</th>
+                                <td>C7:</td>
+                                <td id="concentration7"></td>
+                                <td>LOG(C7):</td>
+                                <td id="logcon7"></td>
+                            </tr>
+                            <tr>
+                                <th>C8=C7/X</th>
+                                <td>C8:</td>
+                                <td id="concentration8"></td>
+                                <td>LOG(C8):</td>
+                                <td id="logcon8"></td>
+                            </tr>
+                        </tbody></table>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

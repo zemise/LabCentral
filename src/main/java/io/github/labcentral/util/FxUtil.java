@@ -74,7 +74,12 @@ public class FxUtil {
         }
     }
 
-    public static void showWarningDialog(String message) {
+
+    /**
+     * javaFx style warning dialog
+     * @param message
+     */
+    public static void warningDialogFx(String message) {
 //        Platform.runLater(() -> {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("警告");
@@ -93,5 +98,36 @@ public class FxUtil {
                     (int) (selectedColor.getBlue() * 255));
             node.setStyle("-fx-text-fill: " + hexColor + ";");
         });
+    }
+
+
+    /**
+     * 将javaFX Color转换为awt Color
+     *
+     * @param fxColor javaFX Color
+     * @return awt Color
+     */
+    public static java.awt.Color fxColorToAwtFont(Color fxColor) {
+        return new java.awt.Color(
+                (float) fxColor.getRed(),
+                (float) fxColor.getGreen(),
+                (float) fxColor.getBlue(),
+                (float) fxColor.getOpacity()
+        );
+    }
+
+    /**
+     * 将javaFX Color转换为16进制颜色
+     *
+     * @param color JavaFX Color
+     * @return 16进制颜色
+     */
+    public static String colorToHex(Color color) {
+        int red = (int) (color.getRed() * 255);
+        int green = (int) (color.getGreen() * 255);
+        int blue = (int) (color.getBlue() * 255);
+        int opacity = (int) (color.getOpacity() * 255);
+
+        return String.format("#%02X%02X%02X%02X", red, green, blue, opacity);
     }
 }

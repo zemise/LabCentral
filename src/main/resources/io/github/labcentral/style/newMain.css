@@ -1,0 +1,92 @@
+@import '../font/Fonts.css';
+@import 'MFXColors.css';
+
+/**************************************************
+ * Root
+**************************************************/
+.rootPane {
+    -fx-background-color: white;
+}
+
+/**************************************************
+ * Sidebar
+**************************************************/
+
+.rootPane .sideBar {
+    -fx-background-color: -mfx-purple;
+    /*-fx-background-insets: -1 -5 -1 -1;*/
+}
+
+.sideBar .header {
+    -fx-font-family: 'Open Sans ExtraBold';
+    -fx-font-size: 24;
+    -fx-text-fill: white;
+}
+
+
+.sideBar .menu-label {
+    -fx-font-family: 'Open Sans Bold';
+    -fx-font-size: 14;
+    -fx-text-fill: white;
+}
+
+.sideBar .scrollPane {
+    -fx-background-color: transparent;
+
+    -track-color: rgba(255, 255, 255, 0.3);
+    -thumb-color: white;
+    -thumb-hover-color: white;
+}
+
+.sideBar .scrollPane .navbar .mfx-rectangle-toggle-node {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-border-color: transparent;
+    -fx-border-radius: 0;
+    -fx-pref-height: 40;
+
+    -fx-font-family: 'Helvetica Regular';
+    -fx-font-size: 13;
+    -fx-text-fill: white;
+}
+
+.sideBar .scrollPane .navbar .mfx-rectangle-toggle-node .mfx-ripple-generator {
+    -mfx-paused: true;
+    /*-mfx-paused: false;*/
+}
+
+.sideBar .scrollPane .navbar .mfx-rectangle-toggle-node .mfx-icon-wrapper .mfx-font-icon {
+    -mfx-color: white;
+}
+
+.sideBar .scrollPane .navbar .mfx-rectangle-toggle-node:selected {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-text-fill: #601cbe;
+}
+
+.sideBar .scrollPane .navbar .mfx-rectangle-toggle-node:selected .selection-rectangle {
+    -fx-stroke: transparent;
+    -fx-fill: #601cbe;
+
+    -fx-background-color: black;
+    -fx-border-width: 20;
+}
+
+.sideBar .scrollPane .navbar .mfx-rectangle-toggle-node .mfx-ripple-generator {
+    -fx-background-color: white;
+}
+
+
+.sideBar .scrollPane .navbar .mfx-rectangle-toggle-node:selected .mfx-icon-wrapper .mfx-font-icon {
+    -mfx-color: #601cbe;
+}
+
+/**************************************************
+ * Content Pane
+**************************************************/
+.rootPane .contentPane {
+    -fx-background-color: yellow;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}

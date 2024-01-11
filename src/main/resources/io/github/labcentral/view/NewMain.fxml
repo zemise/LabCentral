@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXScrollPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="760.0" minWidth="1280.0" prefHeight="760.0" prefWidth="1280.0" styleClass="rootPane" stylesheets="@../style/newMain.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.labcentral.view.NewMainViewController">
+    <StackPane fx:id="contentPane" layoutX="250.0" layoutY="167.0" prefHeight="410.0" prefWidth="835.0" styleClass="contentPane" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+    <VBox fx:id="sideBar" prefHeight="760.0" prefWidth="250.0" styleClass="sideBar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <padding>
+            <Insets bottom="10.0" left="10.0" top="25.0" />
+        </padding>
+        <Label styleClass="header" text="Lab Central">
+            <VBox.margin>
+                <Insets left="10.0" />
+            </VBox.margin>
+            <graphic>
+                <StackPane fx:id="logoContainer" />
+            </graphic>
+        </Label>
+        <Label styleClass="menu-label" text="Component">
+            <VBox.margin>
+                <Insets left="10.0" top="25.0" />
+            </VBox.margin>
+        </Label>
+        <MFXScrollPane fx:id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" styleClass="scrollPane" VBox.vgrow="ALWAYS">
+            <VBox.margin>
+                <Insets bottom="10.0" left="5.0" top="15.0" />
+            </VBox.margin>
+            <content>
+                <VBox fx:id="navBar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="245.0" styleClass="navbar" />
+            </content>
+        </MFXScrollPane>
+    </VBox>
+    <HBox prefHeight="35.0" prefWidth="1280.0">
+        <children>
+            <MenuBar fx:id="menuBar" />
+        </children>
+    </HBox>
+</AnchorPane>

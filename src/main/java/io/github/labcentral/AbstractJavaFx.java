@@ -40,13 +40,4 @@ public abstract class AbstractJavaFx extends AbstractJavaFxApplicationSupport {
 
         return icons;
     }
-
-
-
-
-    //@Override
-    //public void beforeInitialView(Stage stage, ConfigurableApplicationContext ctx) {
-    //    super.beforeInitialView(stage, ctx);
-    //    stage.getScene().getStylesheets().addAll(getClass().getResource("word.css").toExternalForm());
-    //}
 }

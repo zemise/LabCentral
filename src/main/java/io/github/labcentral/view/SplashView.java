@@ -1,7 +1,7 @@
 package io.github.labcentral.view;
 
 import de.felixroske.jfxsupport.SplashScreen;
-import io.github.labcentral.domain.Constants;
+import io.github.labcentral.ResourceLoader;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
@@ -19,7 +19,7 @@ public class SplashView extends SplashScreen {
     @Override
     public Parent getParent() {
         try {
-            return FXMLLoader.load(getClass().getResource(Constants.SPlASH_VIEW));
+            return FXMLLoader.load(ResourceLoader.loadUrl("view/splash.fxml"));
         } catch (Exception e) {
             return new SplashScreen().getParent();
         }

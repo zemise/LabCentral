@@ -1,0 +1,46 @@
+
+/**************************************************
+ * Root
+**************************************************/
+.root-pane {
+    -fx-background-color: white;
+}
+
+/**************************************************
+ *
+**************************************************/
+.title-container {
+    -fx-background-color: #0091dc;
+    /*-fx-border-radius: 10 10 0 0;*/
+    -fx-background-radius: 10 10 0 0;
+}
+
+.title-container .title {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.3em;
+}
+
+.calculator-container {
+    -fx-border-width: 2 0 0 0;
+    -fx-border-color: #0091dc;
+    -fx-background-color: #f9f9f9;
+}
+
+.calculator-container .calculate-symbol {
+    -fx-text-fill: #f85833;
+    -fx-font-weight: bold;
+}
+
+.calculator-container .calculate-button {
+    -fx-background-color: #f85833;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.calculator-container .reset-button {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+}
+

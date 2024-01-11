@@ -9,9 +9,7 @@ import javafx.stage.Window;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
+import java.net.*;
 
 import static java.awt.Desktop.getDesktop;
 
@@ -121,13 +119,26 @@ public class SystemUtil {
 
     public static void showAllWindows() {
         ObservableList<Window> windows = Window.getWindows();
-        // 遍历窗口列表
         for (Window window : windows) {
-            // 只对Stage类型的窗口进行操作
             if (window instanceof Stage stage) {
                 stage.setIconified(false);  // 恢复窗口到正常大小
-                stage.toFront();  // 将窗口置于前台
+                stage.toFront();
             }
+        }
+    }
+
+    /**
+     * check if there have internet connection
+     * @return boolean indicating
+     */
+    public static boolean isInternetAvailable() {
+        try {
+            InetAddress address = InetAddress.getByName("8.8.8.8");
+
+            return address.isReachable(3000); // 3 seconds timeout
+        } catch (java.io.IOException e) {
+            // An exception occurred, meaning no internet connection
+            return false;
         }
     }
 }

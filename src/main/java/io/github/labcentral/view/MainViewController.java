@@ -12,7 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.web.WebView;
 import javafx.stage.Modality;
-import io.github.labcentral.LabCentralMain;
+import io.github.labcentral.Main;
 import io.github.labcentral.domain.custom.domain.PrimaryAntibody;
 import io.github.labcentral.domain.custom.service.MyService;
 import io.github.labcentral.event.LoginEvent;
@@ -28,9 +28,12 @@ import java.util.ResourceBundle;
 /**
  * @author Zemise
  */
+@Deprecated
 @Slf4j
 @FXMLController
 public class MainViewController implements Initializable {
+
+
     @FXML
     private WebView webview;
     @FXML
@@ -69,7 +72,7 @@ public class MainViewController implements Initializable {
                 }
             }
 
-            LabCentralMain.showView(LoginView.class, Modality.WINDOW_MODAL);
+            Main.showView(LoginView.class, Modality.APPLICATION_MODAL);
 
             // 开启查询
             mainSearchFiled.setOnKeyPressed(e -> {

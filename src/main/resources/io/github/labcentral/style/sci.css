@@ -1,0 +1,97 @@
+/**************************************************
+ * Root
+**************************************************/
+.root-pane {
+    -fx-background-color: white;
+}
+
+/**************************************************
+ * Head
+**************************************************/
+.head-container {
+}
+
+.head-container .title {
+    -fx-text-fill: #8b0000 ;
+}
+
+.head-container .search-button {
+    -fx-background-color: #8b0000;
+    -fx-text-fill: white;
+    -fx-font-size: 1.5em;
+}
+
+.head-container .subtitle {
+    -fx-text-fill: #aaaaaa ;
+    -fx-font-size: 1.3em;
+}
+
+/**************************************************
+ * Body
+**************************************************/
+
+.body-container {
+    -fx-background-color: #f9f9f9;
+    -fx-background-radius: 10px;
+}
+
+.body-container .save-button {
+    -fx-background-color: #8b0000;
+    -fx-text-fill: white;
+    -fx-font-size: 1.2em;
+}
+
+.body-container .log-area {
+    -fx-focus-color: #8b0000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

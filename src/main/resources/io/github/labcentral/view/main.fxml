@@ -26,7 +26,7 @@
             prefHeight="668.0" prefWidth="966.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="io.github.labcentral.view.MainViewController">
     <stylesheets>
-        <URL value="@../style/word.css"/>
+        <URL value="@../style/txt2Img.css"/>
 <!--        <URL value="@Common.css"/>-->
     </stylesheets>
     <top>

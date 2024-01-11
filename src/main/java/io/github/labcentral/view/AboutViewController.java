@@ -1,6 +1,7 @@
 package io.github.labcentral.view;
 
 import de.felixroske.jfxsupport.FXMLController;
+import de.felixroske.jfxsupport.GUIState;
 import io.github.labcentral.util.FxUtil;
 import io.github.labcentral.util.SystemUtil;
 import javafx.fxml.Initializable;

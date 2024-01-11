@@ -7,6 +7,10 @@
 - MaterialFX
 - maven-jpackage-template
 
+# Introduction
+
+1. I'm a medical student, not major programmer
+2. I just want to build a little software for myself and practice coding
 
 # Goals
 
@@ -35,12 +39,31 @@ mvn clean install
 ## some interface:
 
 ### SplashView
-<img src="SplashView.png">
+<img src="displayImage/SplashView.png">
 
-### InsertTextView    
-<img src="TextInsertView.png">
+### CalculatorView
+<img src="displayImage/calculatorView.jpg">
+
+### SciView
+<img src="displayImage/sciView.jpg">
+
+### TextToImageView
+<img src="displayImage/textToImageView.jpg">
+
+### InstallView
+<img src="displayImage/installView.jpg">
+
+### AboutView
+<img src="displayImage/aboutView.jpg">
+
+### UpdateView
+<img src="displayImage/aboutView.jpg">
+
+
 
 ## ToDo
 1. about packing and delivering
--[ ] use maven to package dmg
--[ ] use maven to package msi or exe
+-[x] use maven to package dmg
+-[x] use maven to package msi or exe
+-[ ] add pdf viewer
+-[ ] implement all functions

@@ -12,6 +12,42 @@ import java.io.*;
  */
 
 public class FileUtil {
+
+    public static void main(String[] args) {
+        System.out.println(getPath());
+
+        System.out.println(readFile("/data/initData.txt").getPath());
+        System.out.println(readUserHomeFile("init").toPath());
+    }
+
+    public static String getPath() {
+        return FileUtil.class.getResource("/").getPath();
+    }
+
+    public static File createNewFile(String pathName) {
+        File file = new File(getPath() + pathName);
+        if (file.exists()) {
+            file.delete();
+        } else {
+            if (!file.getParentFile().exists()) {
+                file.getParentFile().mkdirs();
+            }
+        }
+        return file;
+    }
+
+    public static InputStream getResourcesFileInputStream(String fileName) {
+        return Thread.currentThread().getContextClassLoader().getResourceAsStream("" + fileName);
+    }
+
+    public static File readFile(String pathName) {
+        return new File(getPath() + pathName);
+    }
+
+    public static File readUserHomeFile(String pathName) {
+        return new File(System.getProperty("user.home") + File.separator + pathName);
+    }
+
     public static void write(String content, String filePath) {
         try {
             File file = new File(filePath);
