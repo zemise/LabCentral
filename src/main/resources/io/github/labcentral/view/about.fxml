@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="root" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.labcentral.view.AboutViewController">
+<StackPane fx:id="root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.labcentral.view.AboutViewController">
     <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="246.0" prefWidth="458.0">
         <GridPane hgap="8.0" prefHeight="246.0" prefWidth="458.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="8.0">
             <columnConstraints>
@@ -39,9 +39,9 @@
             </Label>
             <Label prefHeight="24.0" prefWidth="345.0" text="Build on Dec 15, 2023" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Separator prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label prefHeight="26.0" prefWidth="345.0" text="Software Version 1.0.1" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label prefHeight="26.0" prefWidth="345.0" text="Software Version 1.0.4" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Label prefHeight="21.0" prefWidth="353.0" text="Licence key: XXXXX-XXXXX-XXXXX" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-         <Label prefHeight="26.0" prefWidth="345.0" text="Copyright © 2022–2023 Zemise. All rights reserved." GridPane.columnIndex="1" GridPane.rowIndex="6" />
+         <Label prefHeight="26.0" prefWidth="345.0" text="Copyright © 2024–2025 Zemise. All rights reserved." GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <HBox prefHeight="64.0" prefWidth="345.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                 <Label prefHeight="25.0" prefWidth="79.0" text="Developer(s): " />
                 <Hyperlink fx:id="hyperlinkWebsite" focusTraversable="false" prefHeight="29.0" prefWidth="125.0" text="zemise" textAlignment="CENTER" />
